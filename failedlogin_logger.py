@@ -2,6 +2,8 @@ import csv
 import os
 import win32evtlog
 from datetime import datetime, timedelta
+import subprocess
+
 
 def get_failed_login_attempts():
     print("Attempting to read Security logs for the past 24 hours...")
@@ -67,6 +69,14 @@ def save_to_csv(data, filename="failed_login_logs.csv"):
             writer.writerow(row)
 
     print(f"{len(data)} failed login attempts written to {filename}")
+    if len(data) >= 3:  # You can change this threshold
+        print("⚠️ Multiple failed login attempts detected. Triggering memory dump...")
+        try:
+            subprocess.run(["python", "dump_trigger.py"], check=True)
+            print("✅ Memory dump triggered due to failed login attempts.")
+        except Exception as e:
+            print(f"❌ Error triggering memory dump: {e}")
+
 
 if __name__ == "__main__":
     attempts = get_failed_login_attempts()
