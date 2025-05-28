@@ -64,6 +64,10 @@ def analyze_dump_file(dump_path, mem_usage=0, cpu_usage=0, runtime=0):
             first_bytes = df.read(256)
             hex_output = ' '.join(f"{b:02x}" for b in first_bytes)
             f.write(f"[ANALYSIS] First 256 bytes (hex):\n{hex_output}\n")
+            # ASCII translation for printable characters
+            ascii_output = ''.join(chr(b) if 32 <= b < 127 else '.' for b in first_bytes)
+            f.write(f"\n[ANALYSIS] ASCII representation:\n{ascii_output}\n")
+
 
         f.write("\n[BEHAVIORAL INSIGHTS]\n")
         if mem_usage > 150:
