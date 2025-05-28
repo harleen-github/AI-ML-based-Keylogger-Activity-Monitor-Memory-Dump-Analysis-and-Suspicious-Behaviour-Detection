@@ -17,12 +17,14 @@ Developed as part of the BTech CSE OS Project — SE(OS)-VI-T165
 | failed\_login\_logs.csv | Logs of detected failed login attempts                        |
 
 #Key Features:
-•	Keystrokes
-•	Mouse activity
-•	Failed login attempts
-•	Memory dump extraction and analysis
+- 👨‍💻 **Keystrokes and mouse activity**
+- 🔐 **Failed login attempts (Windows Security Log)**
+- 💾 **Memory dumps of suspicious processes**
+- 🧠 **ML-based anomaly detection**
+- 🖼️ **GUI interface for visualization**
+
 
 👥 Authors
-Saloni Gupta – 22022122 (Team Lead)
-Harleen Kaur – 22022609
-Srijan Chauhan – 22022739
+* Saloni Gupta – 22022122 (Team Lead)
+* Harleen Kaur – 22022609
+* Srijan Chauhan – 22022739
